@@ -1,0 +1,23 @@
+{
+  "name": "fuss-with-cypress",
+  "version": "1.0.0",
+  "description": "demo example",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run"
+  },
+  "devDependencies": {
+    "cypress": "^7.3.0",
+    "cypress-mochawesome-reporter": "^1.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/milanranisavljevic/fuss-with-cypress.git"
+  },
+  "author": "milanranisavljevic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/milanranisavljevic/fuss-with-cypress/issues"
+  },
+  "homepage": "https://github.com/milanranisavljevic/fuss-with-cypress#readme"
+}
