@@ -1,1 +1,16 @@
-{}
+{
+    "baseUrl": "http://localhost:3000",
+    "viewportWidth": 1440,
+    "viewportHeight": 900,
+    "video": true,
+    "reporter": "cypress-mochawesome-reporter",
+    "retries": {
+        "runMode": 2,
+        "openMode": 1
+    },
+    "env": {
+        "apiUrl": "http://localhost:3001",
+        "mobileViewportWidthBreakpoint": 414
+    },
+    "experimentalStudio": true
+}
