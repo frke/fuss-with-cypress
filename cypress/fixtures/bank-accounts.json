@@ -1,0 +1,61 @@
+{
+    "data": {
+        "listBankAccount": [
+            {
+                "id": "11111111111",
+                "uuid": "873abef5-130d-466b-acb0-7df446937389",
+                "userId": "qywYp6hS0U",
+                "bankName": "Milan Ranisavljevic",
+                "accountNumber": "3859571950",
+                "routingNumber": "024971142",
+                "isDeleted": false,
+                "createdAt": "2019-12-14T22:41:09.548Z",
+                "modifiedAt": "2020-05-21T09:46:44.754Z"
+            },
+            {
+                "id": "11111111111",
+                "uuid": "873abef5-130d-466b-acb0-7df446937389",
+                "userId": "qywYp6hS0U",
+                "bankName": "Srdjan Pavlovic",
+                "accountNumber": "3859571950",
+                "routingNumber": "024971142",
+                "isDeleted": true,
+                "createdAt": "2019-12-14T22:41:09.548Z",
+                "modifiedAt": "2020-05-21T09:46:44.754Z"
+            },
+            {
+                "id": "11111111111",
+                "uuid": "873abef5-130d-466b-acb0-7df446937389",
+                "userId": "qywYp6hS0U",
+                "bankName": "Petar Markovic",
+                "accountNumber": "3859571950",
+                "routingNumber": "024971142",
+                "isDeleted": false,
+                "createdAt": "2019-12-14T22:41:09.548Z",
+                "modifiedAt": "2020-05-21T09:46:44.754Z"
+            },
+            {
+                "id": "11111111111",
+                "uuid": "873abef5-130d-466b-acb0-7df446937389",
+                "userId": "qywYp6hS0U",
+                "bankName": "Petar Bozovic",
+                "accountNumber": "3859571950",
+                "routingNumber": "024971142",
+                "isDeleted": false,
+                "createdAt": "2019-12-14T22:41:09.548Z",
+                "modifiedAt": "2020-05-21T09:46:44.754Z"
+            },
+            {
+                "id": "11111111111",
+                "uuid": "873abef5-130d-466b-acb0-7df446937389",
+                "userId": "qywYp6hS0U",
+                "bankName": "Jeff Bridges",
+                "accountNumber": "3859571950",
+                "routingNumber": "024971142",
+                "isDeleted": false,
+                "createdAt": "2019-12-14T22:41:09.548Z",
+                "modifiedAt": "2020-05-21T09:46:44.754Z"
+            }
+        ]
+    }
+}
