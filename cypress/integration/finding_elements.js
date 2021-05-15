@@ -1,4 +1,4 @@
-/// <reference types="cypress" />
+/// <reference types="../support" />
 
 describe('FINDING ELEMENTS', function () {
 
@@ -55,6 +55,9 @@ describe('FINDING ELEMENTS', function () {
 
 		cy.log('🔎 CSS SELECTOR CONSTRUCTION')
 		cy.get('.MuiContainer-root > .MuiTypography-root') // css selector construction
+
+		cy.log('🔎 CUSTOM COMMAND WITH data-test SELECTOR LIKE...')
+		cy.getDtLike('gnin-userna') // custom command with data-test selector like...
 
 	});
 
