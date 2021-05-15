@@ -25,5 +25,14 @@ declare namespace Cypress {
          */
         createNotifications(): Chainable<any>;
 
+        /**
+         * Intercept Gql server response and replace it with fixture JSON object
+         * @example
+         * cy.stubGQL('SitesForTenant', { "sites" : { ... } })
+         * cy.stubGQL('SitesForTenant', { "sites" : { ... } }, 'sitesStub')
+         * cy.stubGQL('SitesForTenant', { "sites" : { ... } }, 'sitesStub', { headers: {'access-control-allow-origin': '*' } })
+         */
+        stubGQL(operationName: string, response: Object, alias?: string, options?: Object): Chainable<any>
+
     }
 }

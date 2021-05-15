@@ -117,3 +117,27 @@ Cypress.Commands.add('createNotifications', () => {
 	});
 
 })
+
+// Stub graphql response
+Cypress.Commands.add('stubGQL', (operationName, response, alias = 'stub', options = {
+	headers: {
+		'access-control-allow-origin': '*',
+	},
+}) => {
+	cy.intercept(
+		{
+			method: 'POST',
+		},
+		(request) => {
+			const data = response.data;
+			if (request.body.hasOwnProperty("query") && request.body.query.includes(operationName)) {
+				request.reply({
+					...options,
+					body: {
+						data
+					},
+				})
+			}
+		},
+	).as(alias)
+})
