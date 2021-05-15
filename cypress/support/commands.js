@@ -27,3 +27,36 @@
 Cypress.Commands.add("getDtLike", (selector, ...args) => {
 	return cy.get(`[data-test*=${selector}]`, ...args);
 });
+
+Cypress.Commands.add("loginByXstate", (username, password = Cypress.env("defaultPassword")) => {
+	const log = Cypress.log({
+		name: "loginbyxstate",
+		displayName: "LOGIN BY XSTATE",
+		message: [`🔐 Authenticating | ${username}`],
+		autoEnd: false,
+	});
+
+	cy.intercept("POST", "/login").as("loginUser");
+	cy.intercept("GET", "/checkAuth").as("getUserProfile");
+	cy.visit("/signin", {log: false}).then(() => {
+		log.snapshot("before");
+	});
+
+	cy.window({log: false}).then((win) => win.authService.send("LOGIN", {username, password}));
+
+	return cy.wait("@loginUser").then((loginUser) => {
+		log.set({
+			consoleProps() {
+				return {
+					username,
+					password,
+					// @ts-ignore
+					userId: loginUser.response.body.user.id,
+				};
+			},
+		});
+
+		log.snapshot("after");
+		log.end();
+	});
+});

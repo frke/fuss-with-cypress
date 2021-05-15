@@ -10,5 +10,10 @@ declare namespace Cypress {
          */
         getDtLike(selectorLike: string, ...args): Chainable<any>
 
+        /**
+         * Logs in bypassing UI by triggering XState login event
+         */
+        loginByXstate(username: string, password?: string): Chainable<any>;
+
     }
 }
