@@ -8,10 +8,6 @@
         "runMode": 2,
         "openMode": 1
     },
-    "env": {
-        "apiUrl": "http://localhost:3001",
-        "mobileViewportWidthBreakpoint": 414
-    },
     "experimentalStudio": true,
     "chromeWebSecurity": false
 }

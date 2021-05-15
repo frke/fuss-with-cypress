@@ -1,0 +1,12 @@
+{
+    "extends": "./cypress.json",
+    "baseUrl": "https://example.cypress.io/cypress-api",
+    "testFiles": [
+        "examples/cypress_api.spec.js",
+        "examples/navigation.spec.js"
+    ],
+    "env": {
+        "apiUrl": "http://stage-api-url",
+        "mobileViewportWidthBreakpoint": 414
+    }
+}
