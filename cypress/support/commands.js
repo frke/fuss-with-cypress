@@ -24,11 +24,13 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
+import faker from "faker";
+
 Cypress.Commands.add("getDtLike", (selector, ...args) => {
 	return cy.get(`[data-test*=${selector}]`, ...args);
 });
 
-Cypress.Commands.add("loginByXstate", (username, password = "s3cret") => {
+Cypress.Commands.add("loginByXstate", (username, password = 's3cret') => {
 	const log = Cypress.log({
 		name: "loginbyxstate",
 		displayName: "LOGIN BY XSTATE",
@@ -60,3 +62,32 @@ Cypress.Commands.add("loginByXstate", (username, password = "s3cret") => {
 		log.end();
 	});
 });
+
+Cypress.Commands.add('createBankAccount', (bankName = "Bank", accountNumber = faker.finance.account(10), routingNumber = faker.finance.account(9)) => {
+	const apiGqlURL = `${Cypress.env('apiUrl')}/graphql`
+	cy.request("POST", apiGqlURL, {
+		query: `mutation createBankAccount ($bankName: String!, $accountNumber: String!,  $routingNumber: String!) {
+          createBankAccount(
+            bankName: $bankName,
+            accountNumber: $accountNumber,
+            routingNumber: $routingNumber
+          ) {
+            id
+            uuid
+            userId
+            bankName
+            accountNumber
+            routingNumber
+            isDeleted
+            createdAt
+          }
+        }`,
+		variables: {
+			bankName: ` ${bankName} - ${faker.company.companyName()}`,
+			accountNumber: accountNumber,
+			routingNumber: routingNumber,
+		},
+	}).then((response) => {
+		expect(response.status).to.eq(200);
+	});
+})

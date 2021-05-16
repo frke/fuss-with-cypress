@@ -18,4 +18,16 @@ describe('API', function () {
 		})
 	});
 
+	it('🔎 Verify bank account is created via API', () => {
+		cy.log("📃 CLICK ON BANK ACCOUNTS")
+		cy.getDtLike('sidenav-bankaccounts').click()
+		cy.getDtLike('bankaccount-list').should('not.contain', "MyBank")
+
+		cy.log("📃 CREATE BANK ACCOUNT VIA API")
+		cy.createBankAccount("MyBank", '1111111111', '111456111')
+
+		cy.reload()
+		cy.getDtLike('bankaccount-list').should('contain', "MyBank")
+	});
+
 })

@@ -8,7 +8,8 @@
   },
   "devDependencies": {
     "cypress": "^7.3.0",
-    "cypress-mochawesome-reporter": "^1.3.0"
+    "cypress-mochawesome-reporter": "^1.3.0",
+    "faker": "^5.5.3"
   },
   "repository": {
     "type": "git",

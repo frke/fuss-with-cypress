@@ -15,5 +15,10 @@ declare namespace Cypress {
          */
         loginByXstate(username: string, password?: string): Chainable<any>;
 
+        /**
+         * Creates bank account via API
+         */
+        createBankAccount(bankName?: string, accountNumber?: string, routingNumber?: string): Chainable<any>;
+
     }
 }
