@@ -28,7 +28,7 @@ Cypress.Commands.add("getDtLike", (selector, ...args) => {
 	return cy.get(`[data-test*=${selector}]`, ...args);
 });
 
-Cypress.Commands.add("loginByXstate", (username, password = Cypress.env("defaultPassword")) => {
+Cypress.Commands.add("loginByXstate", (username, password = "s3cret") => {
 	const log = Cypress.log({
 		name: "loginbyxstate",
 		displayName: "LOGIN BY XSTATE",
