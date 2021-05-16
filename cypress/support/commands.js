@@ -91,3 +91,29 @@ Cypress.Commands.add('createBankAccount', (bankName = "Bank", accountNumber = fa
 		expect(response.status).to.eq(200);
 	});
 })
+
+Cypress.Commands.add('createNotifications', () => {
+	cy.request("POST", `${Cypress.env('apiUrl')}/notifications/bulk`, {
+		items: [
+			{
+				type: "payment",
+				transactionId: "-jCJOEkLh0J",
+				status: "received",
+			},
+			{
+				type: "like",
+				transactionId: '-jCJOEkLh0J',
+				likeId: "MC54o2D5r9aU",
+			},
+			{
+				type: "comment",
+				transactionId: "tsHF6_D5oQ",
+				commentId: "K3HLpKcGKDiP",
+			},
+		],
+	}).then((response) => {
+		expect(response.status).to.eq(200);
+		expect(response.body.results.length).to.equal(3);
+	});
+
+})

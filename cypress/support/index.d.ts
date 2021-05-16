@@ -20,5 +20,10 @@ declare namespace Cypress {
          */
         createBankAccount(bankName?: string, accountNumber?: string, routingNumber?: string): Chainable<any>;
 
+        /**
+         * Creates notifications (like, comment, payment via API
+         */
+        createNotifications(): Chainable<any>;
+
     }
 }

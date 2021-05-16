@@ -30,4 +30,12 @@ describe('API', function () {
 		cy.getDtLike('bankaccount-list').should('contain', "MyBank")
 	});
 
+	it('🔎 Verify notifications are created via API', () => {
+		cy.log("📃 CREATE NOTIFICATIONS VIA API")
+		cy.createNotifications()
+
+		cy.log("📃 CLICK ON NOTIFICATIONS")
+		cy.getDtLike('sidenav-notifications').click()
+	});
+
 })
