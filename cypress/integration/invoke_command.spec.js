@@ -28,7 +28,7 @@ describe('INVOKE COMMAND', () => {
 		cy.log('📃 CHANGE ELEMENT ATTRIBUTE VALUES')
 		cy.get('#username').invoke('css', 'display', 'none')
 
-		cy.log('📃 PAUSE TEST')
+		cy.log('⏸ PAUSE TEST')
 		cy.pause()
 
 		cy.log('📃 CHANGE ELEMENT CSS VALUES')
