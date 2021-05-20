@@ -1,5 +1,8 @@
 {
     "baseUrl": "http://localhost:3000",
+    "ignoreTestFiles": [
+        "**/examples/*.spec.js"
+    ],
     "viewportWidth": 1440,
     "viewportHeight": 900,
     "video": true,
