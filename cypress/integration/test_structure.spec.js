@@ -27,7 +27,7 @@ context('SUITE', () => {
 			cy.log("GROUP LEVEL")
 		})
 
-		it('Verify nested 1', () => {
+		it.only('Verify nested 1', () => {
 			cy.log("GROUP Test")
 		});
 
