@@ -36,6 +36,13 @@
 ---
 ---
 
+## **Cypress Real World App Setup**
+
+[Introducing the Cypress Real World App](https://www.cypress.io/blog/2020/06/11/introducing-the-cypress-real-world-app/#header)
+
+---
+---
+
 ## **Reporting**
 
 Generate a combined HTML report from the `mochawesome.json`
