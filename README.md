@@ -64,4 +64,14 @@ _$_ `npx generate-mochawesome-report`
 
 - [Stop using Page Objects and Start using App Actions](https://www.cypress.io/blog/2019/01/03/stop-using-page-objects-and-start-using-app-actions/)
 
+---
+
 - [Introducing the Cypress Real World App](https://www.cypress.io/blog/2020/06/11/introducing-the-cypress-real-world-app/#header)
+
+- [Configuration](https://docs.cypress.io/guides/references/configuration#cypress-json)
+
+- [Cypress Plugins](https://docs.cypress.io/plugins/directory)
+
+- [Cypress Assertions](https://docs.cypress.io/guides/references/assertions#BDD-Assertions)
+  
+

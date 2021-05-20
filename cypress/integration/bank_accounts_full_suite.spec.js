@@ -40,7 +40,7 @@ describe("Bank Accounts", function () {
 
 		cy.getDtLike("sidenav-bankaccounts").click();
 
-		cy.getDtLike("bankaccount-new").click();
+		cy.getDtLike("bankaccount-new").click({force: true});
 		cy.location("pathname").should("eq", "/bankaccounts/new");
 
 		cy.getDtLike("bankName-input").type("The Best Bank");
@@ -53,8 +53,11 @@ describe("Bank Accounts", function () {
 
 		cy.getDtLike("bankaccount-list-item")
 			.should("have.length.greaterThan", 2)
-			.eq(1)
-			.should("contain", "The Best Bank");
+			.contains('li', 'Best B')
+			.and("contain", "The Best Bank")
+			.find('button')
+			.should('contain.text', 'Delete', {force: true})
+			.and('not.contain.text', 'shebang', {force: true});
 	});
 
 	it("Should display bank account form errors", function () {
@@ -121,7 +124,7 @@ describe("Bank Accounts", function () {
 
 	it("Soft deletes a bank account", function () {
 		cy.visit("/bankaccounts");
-		cy.getDtLike("delete").first().click();
+		cy.getDtLike("delete").first().click({force: true});
 
 		cy.wait("@gqlDeleteBankAccountMutation");
 		cy.getDtLike("list-item").children().contains("Deleted");

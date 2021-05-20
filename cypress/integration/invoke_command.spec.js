@@ -24,14 +24,13 @@ describe('INVOKE COMMAND', () => {
 	});
 
 	it('Modifying CSS and Attributes with invoke command', () => {
-
-		cy.log('📃 CHANGE ELEMENT ATTRIBUTE VALUES')
-		cy.get('#username').invoke('css', 'display', 'none')
-
 		cy.log('⏸ PAUSE TEST')
 		cy.pause()
 
 		cy.log('📃 CHANGE ELEMENT CSS VALUES')
+		cy.get('#username').invoke('css', 'display', 'none')
+
+		cy.log('📃 CHANGE ELEMENT ATTRIBUTE VALUES')
 		cy.get('#password').invoke('attr', 'type', 'checkbox')
 
 	});
