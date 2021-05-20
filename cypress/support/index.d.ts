@@ -34,5 +34,10 @@ declare namespace Cypress {
          */
         stubGQL(operationName: string, response: Object, alias?: string, options?: Object): Chainable<any>
 
+        /**
+         * Select data range within date range picker component
+         */
+        pickDateRange(startDate: Date, endDate: Date): Chainable<void>;
+
     }
 }

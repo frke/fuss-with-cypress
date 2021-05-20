@@ -25,6 +25,7 @@
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
 import faker from "faker";
+import {format as formatDate} from "date-fns";
 
 Cypress.Commands.add("getDtLike", (selector, ...args) => {
 	return cy.get(`[data-test*=${selector}]`, ...args);
@@ -141,3 +142,44 @@ Cypress.Commands.add('stubGQL', (operationName, response, alias = 'stub', option
 		},
 	).as(alias)
 })
+
+Cypress.Commands.add("pickDateRange", (startDate, endDate) => {
+	const log = Cypress.log({
+		name: "pickDateRange",
+		displayName: "PICK DATE RANGE",
+		message: [`🗓 ${startDate.toDateString()} to ${endDate.toDateString()}`],
+		// @ts-ignore
+		autoEnd: false,
+		consoleProps() {
+			return {
+				startDate,
+				endDate,
+			};
+		},
+	});
+
+	const selectDate = (date) => {
+		return cy.get(`[data-date='${formatDate(date, "YYYY-MM-DD")}']`).click({force: true});
+	};
+
+	// Focus initial viewable date picker range around target start date
+	// @ts-ignore: Cypress expects wrapped variable to be a jQuery type
+	cy.wrap(startDate.getTime()).then((now) => {
+		log.snapshot("before");
+		// @ts-ignore
+		cy.clock(now, ["Date"]);
+	});
+
+	// Open date range picker
+	cy.getDtLike("filter-date-range-button").click({force: true});
+	cy.get(".Cal__Header__root").should("be.visible");
+
+	// Select date range
+	selectDate(startDate);
+	selectDate(endDate).then(() => {
+		log.snapshot("after");
+		log.end();
+	});
+
+	cy.get(".Cal__Header__root").should("not.exist");
+});
