@@ -65,6 +65,13 @@ Cypress.Commands.add("loginByXstate", (username, password = 's3cret') => {
 });
 
 Cypress.Commands.add('createBankAccount', (bankName = "Bank", accountNumber = faker.finance.account(10), routingNumber = faker.finance.account(9)) => {
+	const log = Cypress.log({
+		name: "createBankAccount",
+		displayName: "mutation",
+		message: ['📜 mutation createBankAccount'],
+		autoEnd: false,
+	});
+	log.snapshot('before')
 	const apiGqlURL = `${Cypress.env('apiUrl')}/graphql`
 	cy.request("POST", apiGqlURL, {
 		query: `mutation createBankAccount ($bankName: String!, $accountNumber: String!,  $routingNumber: String!) {
@@ -91,9 +98,18 @@ Cypress.Commands.add('createBankAccount', (bankName = "Bank", accountNumber = fa
 	}).then((response) => {
 		expect(response.status).to.eq(200);
 	});
+	log.snapshot('after')
+	log.end()
 })
 
 Cypress.Commands.add('createNotifications', () => {
+	const log = Cypress.log({
+		name: "createNotification",
+		displayName: "POST",
+		message: ['📜 /notifications'],
+		autoEnd: false,
+	});
+	log.snapshot("before")
 	cy.request("POST", `${Cypress.env('apiUrl')}/notifications/bulk`, {
 		items: [
 			{
@@ -115,6 +131,8 @@ Cypress.Commands.add('createNotifications', () => {
 	}).then((response) => {
 		expect(response.status).to.eq(200);
 		expect(response.body.results.length).to.equal(3);
+		log.snapshot('after')
+		log.end()
 	});
 
 })
