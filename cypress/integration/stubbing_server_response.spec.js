@@ -12,9 +12,8 @@ describe('INTERCEPT & STUBBING SERVER RESPONSE', () => {
 		cy.intercept('GET', `${Cypress.env('apiUrl')}/notifications`, notificationFixture)
 
 		cy.log("📃 STUB SERVER RESPONSE FOR BANK ACCOUNTS")
-		cy.stubGQL('listBankAccount', bankAccountsFixture)
+		cy.stubGQL('listBankAccount', bankAccountsFixture, 'bankAccountsList')
 
-		cy.visit('/')
 		cy.loginByXstate('Katharina_Bernier')
 	})
 
