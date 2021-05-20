@@ -3,7 +3,6 @@
 describe('API', function () {
 
 	beforeEach(function () {
-		cy.visit('/')
 		cy.loginByXstate('Katharina_Bernier')
 	})
 

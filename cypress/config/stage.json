@@ -1,9 +1,9 @@
 {
     "extends": "./cypress.json",
-    "baseUrl": "https://example.cypress.io/cypress-api",
+    "baseUrl": "https://docs.cypress.io/guides/references/configuration#cypress-json",
     "testFiles": [
-        "examples/cypress_api.spec.js",
-        "examples/navigation.spec.js"
+        "api.spec.js",
+        "test_structure.spec.js"
     ],
     "env": {
         "apiUrl": "http://stage-api-url",
